@@ -20,3 +20,30 @@
 .bg{
     background: url('../images/background.jpg') no-repeat fixed 1%;
 }
+
+.mg-top{
+    margin-top: 6%;
+}
+
+.mg-bot{
+    margin-bottom: 11%;
+}
+
+.mg-top-chip{
+    margin-top: 4px;
+}
+
+li > a {
+    color: #27947e;
+}
+
+li > a:hover {
+    color: black;
+    font-weight: 400;
+    font-size: 17px;
+}
+
+.star-rating{
+    font-size: 1.3em;
+}
+

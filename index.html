@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="shopApp">
+<html lang="en" ng-app="RapidShopApp">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-    <title>Thrift Shop - Online</title>
+    <title>Rapid Shop | Best Thrift Shop 2015 Awards</title>
 
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="images/favicon.ico" />
     <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -16,11 +17,11 @@
     <nav class="grey lighten-1" role="navigation">
         <div class="nav-wrapper container">
             <div class="center">
-                <a id="logo-container" href="#top" class="brand-logo idx">
-                    <img src="images/logo.png" alt="" height="45" style="margin-top: 8px">
+                <a id="logo-container" href="#top" class="brand-logo idx" title="Rapid Shop - Home">
+                    <img src="images/logo.png" alt="" height="45" class="valign" style="margin-top: 20%">
                 </a>
 
-                <a id="user-profile-container" href="#user" class="brand-logo idx right">
+                <a id="user-profile-container" href="#!" data-activates='user' class="brand-logo idx right user-dropdown">
                    <i class="fa fa-user" style="color: #EBEBEB"></i>
                 </a>
 
@@ -34,9 +35,16 @@
 
             </div>
 
-            <a href="#" data-activates="nav-mobile" class="button-collapse">
-                <i class="material-icons">menu</i>
-            </a>
+            <!-- Dropdown Structure -->
+            <ul id="user" class="dropdown-content collection">
+                <li class="collection-item avatar">
+                    <img src="http://materializecss.com/images/yuna.jpg" alt="" class="circle mg-top">
+                    <span class="title  black-text">Yuna Baby</span>
+                </li>
+                <li class="collection-item">
+                    Sair
+                </li>
+            </ul>
         </div>
     </nav>
 
@@ -45,6 +53,8 @@
     <!--  Scripts-->
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="js/angular/angular.min.js"></script>
+    <script src="js/angular/angular-route.min.js"></script>
+    <script src="js/module.js"></script>
     <script src="js/materialize.js"></script>
     <script src="js/init.js"></script>
 
