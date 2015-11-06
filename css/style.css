@@ -29,8 +29,8 @@
     margin-bottom: 11%;
 }
 
-.mg-top-chip{
-    margin-top: 4px;
+.chip-pad{
+    margin: -2px 0px 5px -1px;
 }
 
 li > a {
@@ -43,7 +43,36 @@ li > a:hover {
     font-size: 17px;
 }
 
-.star-rating{
-    font-size: 1.3em;
+.inactive-link {
+    color: #6c6c6c;
+    pointer-events: none;
+    cursor: default;
 }
 
+.list-filter{
+    list-style: circle;
+    padding: 0 0 0 12px;
+}
+
+.list-filter-header{
+    padding: 0 0 0 25px;
+    list-style: disc;
+}
+
+
+/* For mobile phones: */
+.star-rating {
+    font-size: 15px;
+}
+
+@media only screen and (max-width: 768px) {
+    .star-rating {
+        font-size: 17px;
+    }
+}
+
+@media only screen and (min-width: 1800px) {
+    .star-rating {
+        font-size: 1.4em;
+    }
+}
