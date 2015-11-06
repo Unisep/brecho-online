@@ -3,6 +3,7 @@
 	<name>rapid_shop</name>
 	<comment></comment>
 	<projects>
+		<project>hibernate_generic</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

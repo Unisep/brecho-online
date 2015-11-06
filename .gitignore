@@ -4,6 +4,8 @@
 .mtj.tmp/
 
 # Package Files #
+build
+build/**/*
 *.jar
 *.war
 *.ear

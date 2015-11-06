@@ -2,6 +2,9 @@
     <wb-module deploy-name="rapid_shop">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <dependent-module archiveName="hibernate_generic.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/hibernate_generic/hibernate_generic">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="rapid_shop"/>
         <property name="java-output-path" value="/rapid_shop/build/classes"/>
     </wb-module>
