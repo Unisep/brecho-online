@@ -21,12 +21,12 @@
 		<property name="hibernate.format_sql">true</property>
 
 		<!-- Classes Mapeadas -->
-		<mapping class="brecho.com.vo.attachmentsVO" />
-		<mapping class="brecho.com.vo.basketsVO]" />
-		<mapping class="brecho.com.vo.categoriesVO" />
-		<mapping class="brecho.com.vo.productsBasketsVO" />
-		<mapping class="brecho.com.vo.productsVO" />
-		<mapping class="brecho.com.vo.userVO" />
+		<mapping class="brecho.com.vo.AttachmentsVO" />
+		<mapping class="brecho.com.vo.BasketsVO]" />
+		<mapping class="brecho.com.vo.CategoriesVO" />
+		<mapping class="brecho.com.vo.ProductsBasketsVO" />
+		<mapping class="brecho.com.vo.ProductsVO" />
+		<mapping class="brecho.com.vo.UserVO" />
 
 	</session-factory>
 
