@@ -16,7 +16,7 @@ public class ListOneProductWS {
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<ProductsVO> listProducts(@PathParam("idProduct") Integer idProduct) {
+	public List<ProductsVO> listOneProduct(@PathParam("idProduct") Integer idProduct) {
 
 		ProductDAO dao = new ProductDAO();
 
