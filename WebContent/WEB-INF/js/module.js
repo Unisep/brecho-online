@@ -1,4 +1,4 @@
-var shopApp = angular.module("RapidShopApp", [ "ngRoute" ]);
+var shopApp = angular.module("RapidShopApp", [ "ngRoute", "ngSanitize"]);
 
 shopApp.config(function ($routeProvider) {
     $routeProvider.when('/', {

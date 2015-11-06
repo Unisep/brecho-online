@@ -74,21 +74,15 @@
                             <div class="card">
                                 <div class="card-image">
                                     <a href="#/" class="waves-effect waves-ripple">
-                                        <img src="{{ item.image }}">
+                                        <img src="{{ item.images[0] }}">
                                     </a>
                                 </div>
                                 <div class="card-content">
-                                    <span class="card-title black-text" style="line-height: 8px !important;">Terno, gravata e sapatos</span>
+                                    <span class="card-title black-text" style="line-height: 8px !important;">{{ item.category.name }}</span>
 
                                     <div class="star-rating mg-top mg-bot">
-                                        <span class="right"> R$ 142,58 </span>
-                                        <span class="left">
-                                            <i class="fa fa-star amber-text accent-4"></i>
-                                            <i class="fa fa-star amber-text accent-4"></i>
-                                            <i class="fa fa-star amber-text accent-4"></i>
-                                            <i class="fa fa-star amber-text accent-4"></i>
-                                            <i class="fa fa-star-half-o amber-text accent-4"></i>
-                                        </span>
+                                        <span class="right"> {{ item.price | currency : "R$ "}} </span>
+                                        <span class="left" ng-bind-html="stars_html(item)"></span>
                                     </div>
                                 </div>
                             </div>
