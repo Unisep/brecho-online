@@ -15,7 +15,7 @@ public class ListProductsWS {
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<ProductsVO> listing() {
+	public List<ProductsVO> list() {
 
 		GenericDAO<ProductsVO> dao = new GenericDAO<ProductsVO>();
 
