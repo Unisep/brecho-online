@@ -6,27 +6,27 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "products_has_baskets")
-public class productsBasketsVO {
+public class ProductsBasketsVO {
 
 	@Column(name = "products_id")
-	public productsVO product;
+	public ProductsVO product;
 
 	@Column(name = "baskets_id")
-	public basketsVO basket;
+	public BasketsVO basket;
 
-	public productsVO getProduct() {
+	public ProductsVO getProduct() {
 		return product;
 	}
 
-	public void setProduct(productsVO product) {
+	public void setProduct(ProductsVO product) {
 		this.product = product;
 	}
 
-	public basketsVO getBasket() {
+	public BasketsVO getBasket() {
 		return basket;
 	}
 
-	public void setBasket(basketsVO basket) {
+	public void setBasket(BasketsVO basket) {
 		this.basket = basket;
 	}
 
