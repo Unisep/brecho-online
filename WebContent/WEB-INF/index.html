@@ -13,18 +13,18 @@
     <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body class="bg">
-    <nav class="grey lighten-1" role="navigation">
+    <nav class="grey lighten-1 valign-wrapper" role="navigation">
         <div class="nav-wrapper container">
-            <div class="center">
-                <a id="logo-container" href="#top" class="brand-logo idx" title="Rapid Shop - Home">
-                    <img src="images/logo.png" alt="" height="45" class="valign" style="margin-top: 20%">
+            <div class="center valign">
+                <a id="logo-container" href="#top" class="brand-logo center" title="Rapid Shop - Home">
+                    <img src="images/logo.png" alt="" height="45" style="margin-top: 20%">
                 </a>
 
-                <a id="user-profile-container" href="#!" data-activates='user' class="brand-logo idx right user-dropdown">
+                <a id="user-profile-container" href="#!" data-activates='user' class="valign brand-logo idx hide-on-small-only right user-dropdown">
                    <i class="fa fa-user" style="color: #EBEBEB"></i>
                 </a>
 
-                <form>
+                <form class="hide-on-small-only">
                     <div class="input-field">
                         <input id="search" type="search" required>
                         <label for="search"><i class="material-icons">search</i></label>
@@ -42,6 +42,15 @@
                 <li class="collection-item">
                     Sair
                 </li>
+            </ul>
+
+            <a href="#" data-activates="mobile-demo" class="button-collapse show-on-small hide-on-med-and-up">
+                <i class="material-icons">menu</i>
+            </a>
+
+            <ul class="side-nav" id="mobile-demo">
+                <li><a href="#/">Home</a></li>
+                <li><a href="#/">Perfil</a></li>
             </ul>
         </div>
     </nav>
