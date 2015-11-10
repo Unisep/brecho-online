@@ -85,5 +85,23 @@ shopApp.controller("ControllerList", function($scope, $location, $sce) {
             "description": "Lorem ipsum dolor sit amet, eos te eius abhorreant sed, homero animal vivendo id, te eam quod graecis referrentur, vis ex stet eruditi. " +
             "Ei unum sale impedit nam, te eius abhorreant sed. Utamur luptatum ea cum, assum homero te eius abhorreant sed expet"
         }
-    ]
+    ];
+
+    $scope.addFilter = function(item, id) {
+        var list = angular.element(document.querySelector('.filters_list'));
+        list.append("<div class='chip chip-pad' id='" + item + "'>" + item +
+            "<i class='material-icons' onclick='removeFilter(\"" + id + "\")'>close</i></div>");
+        $("#" + id).addClass('inactive-link');
+    };
+
+    $scope.removeFilter = function(id) {
+        $("#" + id).removeClass('inactive-link');
+    };
 });
+
+function removeFilter(id) {
+    var scope = angular.element($('.filters_list')).scope();
+        scope.$apply(function () {
+            scope.removeFilter(id);
+        });
+}
