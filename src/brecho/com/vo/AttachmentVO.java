@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "attachments")
-public class AttachmentsVO {
+public class AttachmentVO {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,7 +20,7 @@ public class AttachmentsVO {
 	private String filename;
 
 	@Column(name = "product_id")
-	public ProductsVO product;
+	public ProductVO product;
 
 	public Integer getId() {
 		return id;
@@ -38,11 +38,11 @@ public class AttachmentsVO {
 		this.filename = filename;
 	}
 
-	public ProductsVO getProduct() {
+	public ProductVO getProduct() {
 		return product;
 	}
 
-	public void setProduct(ProductsVO product) {
+	public void setProduct(ProductVO product) {
 		this.product = product;
 	}
 

@@ -8,18 +8,18 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import br.edu.unisep.hibernate.GenericDAO;
-import brecho.com.vo.ProductsVO;
+import brecho.com.vo.ProductVO;
 
 @Path("/listProducts")
 public class ListProductsWS {
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<ProductsVO> listProducts() {
+	public List<ProductVO> listProducts() {
 
-		GenericDAO<ProductsVO> dao = new GenericDAO<ProductsVO>();
+		GenericDAO<ProductVO> dao = new GenericDAO<ProductVO>();
 
-		List<ProductsVO> list = dao.listar(ProductsVO.class);
+		List<ProductVO> list = dao.listar(ProductVO.class);
 
 		return list;
 	}
