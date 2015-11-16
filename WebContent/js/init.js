@@ -11,11 +11,13 @@ search = $('#search');
 search.focus(function(){
     $('#user-profile-container').removeClass("idx");
     $('#logo-container').removeClass("idx");
+    $('#shopping-cart').removeClass("idx");
 });
 
 search.focusout(function(){
     $('#user-profile-container').addClass("idx");
     $('#logo-container').addClass("idx");
+    $('#shopping-cart').addClass("idx");
 });
 
 $('.user-dropdown').dropdown({

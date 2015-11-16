@@ -39,13 +39,26 @@
     <nav class="grey lighten-1 valign-wrapper" role="navigation">
         <div class="nav-wrapper container">
             <div class="center valign">
-                <a id="logo-container" href="#top" class="brand-logo center" title="Rapid Shop - Home">
+                <a id="logo-container" href="#/" class="idx brand-logo center" title="Rapid Shop - Home">
                     <img src="images/logo.png" alt="" height="45" style="margin-top: 20%">
                 </a>
 
-                <a id="user-profile-container" href="#!" data-activates='user' class="valign brand-logo idx hide-on-small-only right user-dropdown">
-                    <i class="fa fa-user" style="color: #EBEBEB"></i>
-                </a>
+                <div class="valign brand-logo hide-on-small-only right">
+                    <div class="row">
+                        <div class="col s12">
+                            <div class="col s6">
+                                <a id="shopping-cart" href="#!" class="valign brand-logo idx hide-on-small-only">
+                                    <i class="fa fa-shopping-cart" style="color: #EBEBEB; padding-left: 42px"></i>
+                                </a>
+                            </div>
+                            <div class="col s6">
+                                <a id="user-profile-container" href="#!" data-activates='user' class="valign brand-logo idx hide-on-small-only user-dropdown">
+                                    <i class="fa fa-user" style="color: #EBEBEB"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <form class="hide-on-small-only">
                     <div class="input-field">
@@ -84,19 +97,18 @@
     <div class="container" ng-view></div>
 
     <!--  Scripts-->
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/jquery-2.1.1.min.js"></script>
     <script src="js/angular/angular.min.js"></script>
     <script src="js/angular/angular-route.min.js"></script>
     <script src="js/angular/angular-sanitize.min.js"></script>
     <script src="js/angular/angular-easyfb.min.js"></script>
+    <script src="js/angular/ng-infinite-scroll.min.js"></script>
     <script src="js/module.js"></script>
 
     <script src="js/angular/product_factory.js"></script>
     <script src="js/angular/truncate_filter.js"></script>
 
     <script src="js/materialize.js"></script>
-
-    <script src="js/modules/ng-infinite-scroll.min.js"></script>
 
     <script src="js/init.js"></script>
     <script src="js/controller_list.js"></script>
