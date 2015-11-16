@@ -13,6 +13,29 @@
     <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body class="bg">
+    <script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId      : '787912147999016',
+                xfbml      : true,
+                cookie     : true,
+                version    : 'v2.5'
+            });
+
+            FB.getLoginStatus(function(response) {
+                statusChangeCallback(response);
+            });
+        };
+    </script>
+
     <nav class="grey lighten-1 valign-wrapper" role="navigation">
         <div class="nav-wrapper container">
             <div class="center valign">
@@ -21,7 +44,7 @@
                 </a>
 
                 <a id="user-profile-container" href="#!" data-activates='user' class="valign brand-logo idx hide-on-small-only right user-dropdown">
-                   <i class="fa fa-user" style="color: #EBEBEB"></i>
+                    <i class="fa fa-user" style="color: #EBEBEB"></i>
                 </a>
 
                 <form class="hide-on-small-only">
@@ -34,13 +57,16 @@
             </div>
 
             <!-- Dropdown Structure -->
-            <ul id="user" class="dropdown-content collection">
-                <li class="collection-item avatar">
-                    <img src="http://materializecss.com/images/yuna.jpg" alt="" class="circle mg-top">
-                    <span class="title  black-text">Yuna Baby</span>
+            <ul id="user" class="dropdown-content collection" ng-controller="LoginController">
+                <li ng-hide="loginStatus.status == 'connected'">
+                    <a ng-click="login()" href> Entrar com o Facebook</a>
                 </li>
-                <li class="collection-item">
-                    Sair
+                <li class="collection-item avatar" ng-hide="loginStatus.status != 'connected'">
+                    <img src="{{ user.picture.data.url }}" id="img-user-profile" alt="" class="circle mg-top">
+                    <span class="title  black-text">{{ user.name }}</span>
+                </li>
+                <li class="collection-item" ng-hide="!loginStatus || loginStatus.status != 'connected'">
+                    <a href ng-click="logout()">Logout</a>
                 </li>
             </ul>
 
@@ -62,12 +88,18 @@
     <script src="js/angular/angular.min.js"></script>
     <script src="js/angular/angular-route.min.js"></script>
     <script src="js/angular/angular-sanitize.min.js"></script>
-    <script src="js/modules/ng-infinite-scroll.min.js"></script>
+    <script src="js/angular/angular-easyfb.min.js"></script>
     <script src="js/module.js"></script>
+
     <script src="js/angular/product_factory.js"></script>
     <script src="js/angular/truncate_filter.js"></script>
+
     <script src="js/materialize.js"></script>
+
+    <script src="js/modules/ng-infinite-scroll.min.js"></script>
+
     <script src="js/init.js"></script>
     <script src="js/controller_list.js"></script>
+    <script src="js/login_controller.js"></script>
 </body>
 </html>
