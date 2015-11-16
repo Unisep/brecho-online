@@ -1,4 +1,8 @@
-shopApp.controller("ControllerList", function($scope, $location, $sce) {
+shopApp.controller("ControllerList", function($scope, $location, $sce, ProductFactory) {
+    $scope.query = {};
+    $scope.product = new ProductFactory();
+    $scope.filters_list = angular.element(document.querySelector('.filters_list'));
+
     $scope.stars_html = function(item) {
         var string = '';
 
@@ -66,7 +70,7 @@ shopApp.controller("ControllerList", function($scope, $location, $sce) {
             "Ei unum sale impedit nam, te eius abhorreant sed. Utamur luptatum ea cum, assum homero te eius abhorreant sed expet"
         },
         {
-            "images" : ["images/sapatos1.jpg"],
+            "images" : ["images/vestido1.jpg"],
             "genre" : "feminino",
             "rate_total" : 0,
             "price" : 55.19,
@@ -87,21 +91,131 @@ shopApp.controller("ControllerList", function($scope, $location, $sce) {
         }
     ];
 
-    $scope.addFilter = function(item, id) {
-        var list = angular.element(document.querySelector('.filters_list'));
-        list.append("<div class='chip chip-pad' id='" + item + "'>" + item +
-            "<i class='material-icons' onclick='removeFilter(\"" + id + "\")'>close</i></div>");
-        $("#" + id).addClass('inactive-link');
+    $scope.filters = [
+        {
+            name: 'Gênero',
+            kind: 'genre',
+            items: [
+                {
+                    id_caller: 'male',
+                    id_chip: 'male_chip',
+                    text: 'Masculino',
+                    value: 'm'
+                },
+                {
+                    id_caller: 'female',
+                    id_chip: 'female_chip',
+                    text: 'Feminino',
+                    value: 'f'
+                }
+            ]
+        },
+        {
+            name: 'Categorias',
+            kind: 'category',
+            items: [
+                {
+                    id_caller: 'r_filter',
+                    id_chip: 'r_chip',
+                    text: 'Roupas',
+                    value: 'r'
+                },
+                {
+                    id_caller: 's_filter',
+                    id_chip: 's_chip',
+                    text: 'Sapatos',
+                    value: 's'
+                },
+                {
+                    id_caller: 'a_filter',
+                    id_chip: 'a_chip',
+                    text: 'Acessórios',
+                    value: 'a'
+                }
+            ]
+        },
+        {
+            name: 'Reputação',
+            kind: 'reputation',
+            items: [
+                {
+                    id_caller: '5_filter',
+                    id_chip: '5_chip',
+                    text: '5 estrelas',
+                    value: 5
+                },
+                {
+                    id_caller: '4_filter',
+                    id_chip: '4_chip',
+                    text: '4 estrelas',
+                    value: 4
+                },
+                {
+                    id_caller: '3_filter',
+                    id_chip: '3_chip',
+                    text: '3 estrelas',
+                    value: 3
+                },
+                {
+                    id_caller: '2_filter',
+                    id_chip: '2_chip',
+                    text: '2 estrelas',
+                    value: 2
+                },
+                {
+                    id_caller: '1_filter',
+                    id_chip: '1_chip',
+                    text: '1 estrela',
+                    value: 1
+                }
+            ]
+        }
+    ];
+
+    $scope.addFilter = function(kind_index, index) {
+        root = $scope.filters[kind_index];
+        item = root.items[index];
+
+        if ($.inArray(root.kind, Object.keys($scope.query)) >= 0){
+            $(".filters_list div[name='" + root.kind + "']").map(function() {
+                $scope.removeAllFilters(kind_index);
+            });
+        }
+
+        $scope.filters_list.append("<div class='chip chip-pad' name='"+ root.kind +"' id='" + item.id_chip + "'>"
+            + item.text +
+            "<i class='material-icons' onclick='removeFilter(" + kind_index+ "," + index + ")'>close</i></div>");
+
+        $("#" + item.id_caller).addClass('inactive-link');
+
+        $scope.query[root.kind] = item.value;
     };
 
-    $scope.removeFilter = function(id) {
-        $("#" + id).removeClass('inactive-link');
+    $scope.removeFilter = function(kind_index, index) {
+        root = $scope.filters[kind_index];
+        item = root.items[index];
+
+        $("#" + item.id_caller).removeClass('inactive-link');
+        $("#" + item.id_chip).remove();
+
+        delete $scope.query[root.kind];
+    };
+
+    $scope.removeAllFilters = function(kind_index) {
+        root = $scope.filters[kind_index];
+
+        root.items.forEach(function(item){
+            $("#" + item.id_caller).removeClass('inactive-link');
+            $("#" + item.id_chip).remove();
+        });
+
+        delete $scope.query[root.kind];
     };
 });
 
-function removeFilter(id) {
+function removeFilter(kind_index, index) {
     var scope = angular.element($('.filters_list')).scope();
         scope.$apply(function () {
-            scope.removeFilter(id);
+            scope.removeFilter(kind_index, index);
         });
 }

@@ -1,4 +1,4 @@
-var shopApp = angular.module("RapidShopApp", [ "ngRoute", "ngSanitize"]);
+var shopApp = angular.module("RapidShopApp", [ "ngRoute", "ngSanitize", "infinite-scroll" ]);
 
 shopApp.config(function ($routeProvider) {
     $routeProvider.when('/', {

@@ -6,48 +6,18 @@
         <div class="card z-depth-2">
             <div class="card-content">
                 <h5>Filtre por: </h5>
+                <div class="filters_list">
+                </div>
 
-                <div class="filters_list"></div>
-
-                <ol class="list-filter-header">
-                    <li> Gênero:
-                        <ol class="list-filter">
-                            <li><a ng-click="addFilter('Masculino', 'm_filter')" id="m_filter" href>Masculino</a></li>
-                            <li><a ng-click="addFilter('Feminino', 'f_filter')" id="f_filter" href>Feminino</a></li>
-                        </ol>
-                    </li>
-                </ol>
-                <ol class="list-filter-header">
-                    <li> Categorias:
-                        <ol class="list-filter">
-                            <li><a ng-click="addFilter('Roupas', 'r_filter')" id="r_filter" href>Roupas</a></li>
-                            <li><a ng-click="addFilter('Sapatos', 's_filter')" id="s_filter" href>Sapatos</a></li>
-                            <li><a ng-click="addFilter('Acessórios', 'a_filter')" id="a_filter" href>Acessórios</a></li>
-                        </ol>
-                    </li>
-                </ol>
-                <ol class="list-filter-header">
-                    <li> Reputação:
-                        <ol class="list-filter">
-                            <li><a ng-click="addFilter('5 estrelas', '5_filter')" id="5_filter" href>5 estrelas</a></li>
-                            <li><a ng-click="addFilter('4 estrelas', '4_filter')" id="4_filter" href>4 estrelas</a></li>
-                            <li><a ng-click="addFilter('3 estrelas', '3_filter')" id="3_filter" href>3 estrelas</a></li>
-                            <li><a ng-click="addFilter('2 estrelas', '2_filter')" id="2_filter" href>2 estrelas</a></li>
-                            <li><a ng-click="addFilter('1 estrela', '1_filter')" id="1_filter" href>1 estrela</a></li>
-                        </ol>
-                    </li>
-                </ol>
-                <ol class="list-filter-header">
-                    <li> Preço:
-                        <ol class="list-filter">
-                            <li><a ng-click="addFilter('menos de R$ 50', 'lw_50_filter')" id="lw_50_filter" href>menos de R$ 50</a></li>
-                            <li><a ng-click="addFilter('R$ 50 - R$ 100', 'bt_50_100_filter')" id="bt_50_100_filter" href>R$ 50 - R$ 100</a></li>
-                            <li><a ng-click="addFilter('R$ 100 - R$ 200', 'bt_100_200_filter')" id="bt_100_200_filter" href>R$ 100 - R$ 200</a></li>
-                            <li><a ng-click="addFilter('R$ 200 - R$ 300', 'bt_200_300_filter')" id="bt_200_300_filter" href>R$ 200 - R$ 300</a></li>
-                            <li><a ng-click="addFilter('mais de R$ 300', 'gt_300_filter')" id="gt_300_filter" href>mais de R$ 300</a></li>
-                        </ol>
-                    </li>
-                </ol>
+                <div ng-repeat="filter in filters">
+                    <ol class="list-filter-header">
+                        <li> {{ filter.name }}:
+                            <ol class="list-filter">
+                                <li ng-repeat="f in filter.items"><a id="{{ f.id_caller }}" ng-click="addFilter($parent.$index, $index)" href>{{ f.text }}</a></li>
+                            </ol>
+                        </li>
+                    </ol>
+                </div>
             </div>
         </div>
     </div>
@@ -56,25 +26,44 @@
     <!-- Start List Items -->
     <div class="col l9 m7 s12">
         <div class="row">
-            <div ng-repeat='item in items'>
-                <div class="col s12 l4">
-                    <div class="row">
-                        <div class="col s12">
-                            <div class="card z-depth-2">
-                                <div class="card-image card-image-fixed">
-                                    <a href="#/" class="waves-effect waves-ripple">
-                                        <img src="{{ item.images[0] }}">
-                                    </a>
-                                </div>
-                                <div class="card-content">
-                                    <div class="card-title black-text" style="height: 2em;">
-                                        <p style="line-height: 25px !important;">{{ item.category.name | truncate: 35 }}</p>
+            <div infinite-scroll='product.nextPage()' infinite-scroll-disabled='product.busy' infinite-scroll-distance='1'>
+                <div ng-repeat='item in product.items | filter: query '>
+                    <div class="col s12 l4">
+                        <div class="row">
+                            <div class="col s12">
+                                <div class="card z-depth-2">
+                                    <div class="card-image card-image-fixed">
+                                        <a href="#/" class="waves-effect waves-ripple">
+                                            <img src="{{ item.images[0] }}">
+                                        </a>
                                     </div>
+                                    <div class="card-content">
+                                        <div class="card-title black-text" style="height: 2em;">
+                                            <p style="line-height: 25px !important;">{{ item.category.name | truncate: 35 }}</p>
+                                        </div>
 
-                                    <div class="star-rating mg-top mg-bot">
-                                        <span class="right"> {{ item.price | currency : "R$ "}} </span>
-                                        <span class="left" ng-bind-html="stars_html(item)"></span>
+                                        <div class="star-rating mg-top mg-bot">
+                                            <span class="right"> {{ item.price | currency : "R$ "}} </span>
+                                            <span class="left" ng-bind-html="stars_html(item)"></span>
+                                        </div>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-show='product.busy'>
+                    <div class="col s6 offset-s3 center">
+                        <div class="preloader-wrapper big active">
+                            <div class="spinner-layer spinner-blue-only">
+                                <div class="circle-clipper left">
+                                    <div class="circle"></div>
+                                </div>
+                                <div class="gap-patch">
+                                    <div class="circle"></div>
+                                </div>
+                                <div class="circle-clipper right">
+                                    <div class="circle"></div>
                                 </div>
                             </div>
                         </div>
@@ -84,22 +73,4 @@
         </div>
     </div>
     <!-- End List Items -->
-
-    <!-- Preloader -->
-    <div class="col s6 offset-s3 center">
-        <div class="preloader-wrapper big active">
-            <div class="spinner-layer spinner-blue-only">
-                <div class="circle-clipper left">
-                    <div class="circle"></div>
-                </div>
-                <div class="gap-patch">
-                    <div class="circle"></div>
-                </div>
-                <div class="circle-clipper right">
-                    <div class="circle"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- / Preloader -->
 </div>
