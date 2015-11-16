@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "products")
-public class ProductsVO {
+public class ProductVO {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,7 +25,7 @@ public class ProductsVO {
 
 	@OneToOne
 	@Column(name = "category_id")
-	public CategoriesVO categories;
+	public CategorieVO categories;
 
 	public Integer getId() {
 		return id;
@@ -43,11 +43,11 @@ public class ProductsVO {
 		this.price = price;
 	}
 
-	public CategoriesVO getCategories() {
+	public CategorieVO getCategories() {
 		return categories;
 	}
 
-	public void setCategories(CategoriesVO categories) {
+	public void setCategories(CategorieVO categories) {
 		this.categories = categories;
 	}
 

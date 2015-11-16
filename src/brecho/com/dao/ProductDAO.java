@@ -8,17 +8,17 @@ import org.hibernate.criterion.Restrictions;
 
 import br.edu.unisep.hibernate.GenericDAO;
 import br.edu.unisep.hibernate.HibernateSessionFactory;
-import brecho.com.vo.ProductsVO;
+import brecho.com.vo.ProductVO;
 
-public class ProductDAO extends GenericDAO<ProductsVO> {
+public class ProductDAO extends GenericDAO<ProductVO> {
 
-	public List<ProductsVO> list(Integer idProduct) {
+	public List<ProductVO> list  (Integer idProduct) {
 		
 		Session session = HibernateSessionFactory.getSession();
-		Criteria crit = session.createCriteria(ProductsVO.class);
+		Criteria crit = session.createCriteria(ProductVO.class);
 		crit.add(Restrictions.eq("product.id", idProduct));
 
-		List<ProductsVO> lista = crit.list();
+		List<ProductVO> lista = crit.list();
 
 		return lista;
 	}

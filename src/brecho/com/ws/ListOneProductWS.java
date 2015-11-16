@@ -9,18 +9,18 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import brecho.com.dao.ProductDAO;
-import brecho.com.vo.ProductsVO;
+import brecho.com.vo.ProductVO;
 
 @Path("/listOneProduct/{idProduct}")
 public class ListOneProductWS {
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<ProductsVO> listOneProduct(@PathParam("idProduct") Integer idProduct) {
+	public List<ProductVO> listOneProduct(@PathParam("idProduct") Integer idProduct) {
 
 		ProductDAO dao = new ProductDAO();
 
-		List<ProductsVO> list = dao.list(idProduct);
+		List<ProductVO> list = dao.list(idProduct);
 
 		return list;
 	}
