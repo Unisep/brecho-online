@@ -2,7 +2,7 @@ shopApp.controller("ControllerList", function($scope, $location, $sce, ProductFa
     $scope.query = {};
     $scope.product = new ProductFactory();
     $scope.filters_list = angular.element(document.querySelector('.filters_list'));
-
+    
     $scope.stars_html = function(item) {
         var string = '';
 

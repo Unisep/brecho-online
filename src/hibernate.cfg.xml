@@ -23,7 +23,7 @@
 		<!-- Classes Mapeadas -->
 		<mapping class="brecho.com.vo.AttachmentVO" />
 		<mapping class="brecho.com.vo.BasketVO" />
-		<mapping class="brecho.com.vo.CategorieVO" />
+		<mapping class="brecho.com.vo.CategoryVO" />
 		<mapping class="brecho.com.vo.ProductBasketVO" />
 		<mapping class="brecho.com.vo.ProductVO" />
 		<mapping class="brecho.com.vo.UserVO" />

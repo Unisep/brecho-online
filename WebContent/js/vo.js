@@ -1,4 +1,4 @@
-function userVO() {
+function UserVO() {
 	this.id = null;
 	this.name = "";
 	this.password = "";
@@ -6,25 +6,26 @@ function userVO() {
 	this.gender = "";
 };
 
-function categoriesVO() {
+function CategoryVO() {
 	this.id = null;
 	this.name = "";
 };
 
-function productsVO() {
+function ProductVO() {
 	this.id = null;
 	this.description = "";
 	this.price = null;
-	this.categories = categoriesVO();
+	this.category = CategoryVO();
+	this.user = UserVO();
 };
 
-function productsBasketsVO() {
-	this.product = productsVO();
-	this.basket = basketsVO();
+function ProductBasketVO() {
+	this.product = ProductVO();
+	this.basket = BasketVO();
 };
 
-function attachmentsVO() {
+function AttachmentVO() {
 	this.id = null;
 	this.filename= "";
-	this.products = productsVO();
+	this.product = ProductVO();
 };
