@@ -1,10 +1,8 @@
 (function($){
     $(function(){
-
         $('.button-collapse').sideNav();
-
-    }); // end of document ready
-})(jQuery); // end of jQuery name space
+    });
+})(jQuery);
 
 search = $('#search');
 
@@ -29,3 +27,17 @@ $('.user-dropdown').dropdown({
         belowOrigin: true
     }
 );
+
+$('.cart-dropdown').dropdown({
+        inDuration: 300,
+        outDuration: 225,
+        constrain_width: false,
+        hover: false,
+        gutter: 0,
+        belowOrigin: true
+    }
+);
+
+angular.element('.card-image').ready(function () {
+    $('.materialboxed').materialbox();
+});

@@ -7,7 +7,7 @@
 
 	<session-factory>
 		<property name="connection.url">
-			jdbc:postgresql://localhost:5432/brecho-online
+			jdbc:postgresql://localhost:5432/thrift_shop
 		</property>
 		<property name="connection.username">postgres</property>
 		<property name="connection.password">admin</property>
@@ -23,7 +23,7 @@
 		<!-- Classes Mapeadas -->
 		<mapping class="brecho.com.vo.AttachmentVO" />
 		<mapping class="brecho.com.vo.BasketVO" />
-		<mapping class="brecho.com.vo.CategorieVO" />
+		<mapping class="brecho.com.vo.CategoryVO" />
 		<mapping class="brecho.com.vo.ProductBasketVO" />
 		<mapping class="brecho.com.vo.ProductVO" />
 		<mapping class="brecho.com.vo.UserVO" />

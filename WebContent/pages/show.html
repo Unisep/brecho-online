@@ -1,0 +1,100 @@
+<nav class="transparent z-depth-0">
+    <div class="nav-wrapper">
+        <div class="col s12">
+            <a href="#/" class="breadcrumb">Todos os Produtos</a>
+            <a href="#!" class="breadcrumb">Visualização</a>
+        </div>
+    </div>
+</nav>
+
+<div class="row">
+    <div class="col l7 s12">
+        <div class="row">
+            <div class="col s12 m11">
+                <div class="card big z-depth-2">
+                    <div class="card-image">
+                        <div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 100%; height: 100%; overflow: hidden; visibility: hidden;">
+                            <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 100%; height: 100%; overflow: hidden;">
+                                <div data-p="225.00" style="display: none;">
+                                    <img data-u="image" src="http://lorempixel.com/580/500/nature/2" />
+                                </div>
+                                <div data-p="225.00" style="display: none;">
+                                    <img data-u="image" src="http://lorempixel.com/580/500/nature/5" />
+                                </div>
+                            </div>
+
+                            <span class="card-title idx" style="" ng-bind-html="stars.stars_html(product)"></span>
+
+                            <!-- Arrow Navigator -->
+                            <span data-u="arrowleft" class="jssora22l" style="top:0px;left:12px;width:40px;height:58px;" data-autocenter="2"></span>
+                            <span data-u="arrowright" class="jssora22r" style="top:0px;right:12px;width:40px;height:58px;" data-autocenter="2"></span>
+                        </div>
+                        <!--<img class="materialboxed" width="650" src="./images/vestido1.jpg"/>-->
+                    </div>
+                    <div class="card-content">
+                        <p>{{ product.description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col l5">
+        <div class="row">
+            <div class="col s12">
+                <h4>{{ product.category.name }}</h4>
+            </div>
+
+            <div class="col s12">
+                <div class="col s6">
+                    <h5>{{ product.price | currency : "R$ "}}</h5>
+                </div>
+                <div class="col s6">
+                    <h5 class="grey-text darken-1">FRETE GRÁTIS</h5>
+                </div>
+            </div>
+        </div>
+
+        <a class="waves-effect waves-light btn"><i class="material-icons left">shopping_cart</i>BUY</a>
+    </div>
+</div>
+
+<script>
+    $('.slider').slider({full_width: true, indicators: true});
+</script>
+
+
+<script>
+    jQuery(document).ready(function ($) {
+
+
+        var jssor_1_options = {
+            $AutoPlay: true,
+            $SlideDuration: 800,
+            $SlideEasing: $Jease$.$OutQuint,
+            $ArrowNavigatorOptions: {
+                $Class: $JssorArrowNavigator$
+            }
+        };
+
+        var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+
+        //responsive code begin
+        //you can remove responsive code if you don't want the slider scales while window resizing
+        function ScaleSlider() {
+            var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
+            if (refSize) {
+                refSize = Math.min(refSize, 1920);
+                jssor_1_slider.$ScaleWidth(refSize);
+            }
+            else {
+                window.setTimeout(ScaleSlider, 30);
+            }
+        }
+        ScaleSlider();
+        $(window).bind("load", ScaleSlider);
+        $(window).bind("resize", ScaleSlider);
+        $(window).bind("orientationchange", ScaleSlider);
+        //responsive code end
+    });
+</script>

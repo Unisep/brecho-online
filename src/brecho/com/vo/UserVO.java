@@ -27,7 +27,7 @@ public class UserVO {
 
 	@Column(name="gender")
 	private String gender;
-
+	
 	public Integer getId() {
 		return id;
 	}
@@ -67,5 +67,4 @@ public class UserVO {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-
 }

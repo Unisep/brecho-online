@@ -6,6 +6,11 @@ shopApp.config(function ($routeProvider) {
         controller: 'ControllerList'
     });
 
+    $routeProvider.when('/show/:id', {
+        templateUrl: 'pages/show.html',
+        controller: 'ShowProductController'
+    });
+
     $routeProvider.otherwise({
         templateUrl: 'pages/error.html'
     });
