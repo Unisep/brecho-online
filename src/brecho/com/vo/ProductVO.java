@@ -6,8 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -26,13 +24,13 @@ public class ProductVO {
 	@Column(name = "price")
 	private Double price;
 
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name = "category_id")
 	public CategoryVO category;
 
-	@ManyToOne
-	@JoinColumn(name = "users_id")
-	public UserVO user;
+	@OneToOne
+	@JoinColumn(name = "owner_id")
+	public UserVO owner;
 
 	public Integer getId() {
 		return id;
@@ -66,12 +64,12 @@ public class ProductVO {
 		this.category = category;
 	}
 
-	public UserVO getUser() {
-		return user;
+	public UserVO getOwner() {
+		return owner;
 	}
 
-	public void setUser(UserVO user) {
-		this.user = user;
+	public void setOwner(UserVO user) {
+		this.owner = user;
 	}
 
 }
