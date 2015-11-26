@@ -11,6 +11,11 @@ shopApp.config(function ($routeProvider) {
         controller: 'ShowProductController'
     });
 
+    $routeProvider.when('/cart', {
+        templateUrl: 'pages/cart.html',
+        controller: 'ShopCartController'
+    });
+
     $routeProvider.otherwise({
         templateUrl: 'pages/error.html'
     });

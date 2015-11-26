@@ -16,9 +16,7 @@
                         <section class="cd-single-item">
                             <div class="cd-slider-wrapper">
                                 <ul class="cd-slider">
-                                    <li class="selected"><img src="./images/sapatos1.jpg" alt="Product Image 1"></li>
-                                    <li><img src="./images/vestido1.jpg" alt="Product Image 2"></li>
-                                    <li><img src="./images/terno.png" alt="Product Image 3"></li>
+                                    <li class="{{ $index == 0 ? 'selected' : '' }}" ng-repeat='image in product.images'><img ng-src="{{ image }}"></li>
                                 </ul> <!-- cd-slider -->
 
                                 <ul class="cd-slider-navigation">
@@ -43,7 +41,7 @@
     <div class="col l5">
         <div class="row">
             <div class="col s12">
-                <h4>{{ product.category.name }}</h4>
+                <h4>{{ product.name }}</h4>
             </div>
 
             <div class="col s12">
@@ -57,7 +55,7 @@
 
             <div class="col s12">
                 <br>
-                <a class="waves-effect waves-light btn" style="z-index: 1"><i class="material-icons left">shopping_cart</i>BUY</a>
+                <a class="waves-effect waves-light btn" id="button-buy" style="z-index: 1" ng-click="buy();"><i class="material-icons left">shopping_cart</i>BUY</a>
             </div>
         </div>
 
@@ -80,9 +78,9 @@
 
                     <tbody>
                         <tr>
-                            <td><div class="chip">tem fé</div></td>
-                            <td>Masculino</td>
-                            <td>39-40</td>
+                            <td><div class="chip">{{ product.category.name }}</div></td>
+                            <td>{{ product.gender }}</td>
+                            <td>{{ product.size }}</td>
                         </tr>
                     </tbody>
                 </table>

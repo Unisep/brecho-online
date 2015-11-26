@@ -35,14 +35,14 @@
     <div class="col l9 m7 s12">
         <div class="row">
             <div infinite-scroll='product.nextPage()' infinite-scroll-disabled='product.busy' infinite-scroll-distance='1'>
-                <div ng-repeat='item in product.items | filter: query '>
+                <div ng-repeat='item in product.items | filter: query'>
                     <div class="col s12 l4">
                         <div class="row">
                             <div class="col s12">
                                 <div class="card z-depth-2">
                                     <div class="card-image card-image-fixed">
                                         <a href="#/show/{{ item.id }}" class="waves-effect waves-ripple">
-                                            <img src="{{ item.images[0] }}">
+                                            <img ng-src="{{ item.images[0] }}">
                                         </a>
                                     </div>
                                     <div class="card-content">
