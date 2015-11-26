@@ -22,11 +22,12 @@ shopApp.controller("ShowProductController", function($scope, $location, $sce, St
     };
 
     $scope.disableButton = function(){
-        console.log(CartService.exists($scope.product.id));
         if (CartService.exists($scope.product.id)){
             $('#button-buy').addClass('disabled');
         } else{
             $('#button-buy').removeClass('disabled');
         }
     };
+
+    $scope.disableButton();
 });

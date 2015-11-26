@@ -85,7 +85,7 @@
             </ul>
 
             <ul id="cart" class="dropdown-content collection" ng-controller="ShopCartController">
-                <li ng-repeat="product in basket.items" class="collection-item avatar">
+                <li ng-click="$location.path('/cart');" ng-repeat="product in basket.items" class="collection-item avatar">
                     <img ng-src="{{ product.images[0] }}" class="circle mg-top">
                     <span class="title black-text truncate">{{ product.name }}</span>
                     <span class="sub-title-item grey-text truncate">{{ product.price | currency : "R$ " }} - Tam: <b>{{ product.size }}</b></span>
@@ -102,12 +102,22 @@
             <ul class="side-nav" id="mobile-demo">
                 <li><a href="#/">Home</a></li>
                 <li><a href="#/">Perfil</a></li>
-                <li><a href="#/">Carrinho</a></li>
+                <li><a href="#/cart">Carrinho</a></li>
             </ul>
         </div>
     </nav>
 
-    <div class="container" ng-view></div>
+    <div class="container" ng-view style="min-height: 590px;"></div>
+
+    <footer class="grey  page-footer">
+        <div class="footer-copyright">
+            <div class="container">
+                © 2015 Equipe Rocket - UNISEP - S.I.
+                <a class="grey-text text-lighten-4 right" href="github.com/unisep/brecho-online">Source</a>
+                <a class="grey-text text-lighten-4 right" style="margin-right: 10px;" href="github.com/brunoocasali">Contact</a>
+            </div>
+        </div>
+    </footer>
 
     <!--  Scripts-->
     <script src="js/jquery/jquery-2.1.1.js"></script>
