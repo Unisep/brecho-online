@@ -10,7 +10,8 @@
     <link rel="shortcut icon" type="image/png" href="images/favicon.ico" />
     <link href="css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/slider.css" rel="stylesheet"/>
 </head>
 <body class="bg">
     <script>
@@ -75,7 +76,7 @@
                     <a ng-click="login()" href> Entrar com o Facebook</a>
                 </li>
                 <li class="collection-item avatar" ng-hide="loginStatus.status != 'connected'">
-                    <img src="{{ user.picture.data.url }}" id="img-user-profile" alt="" class="circle mg-top">
+                    <!--<img src="{{ user.picture.data.url }}" id="img-user-profile" alt="" class="circle mg-top">-->
                     <span class="title black-text">{{ user.name }}</span>
                 </li>
                 <li class="collection-item" ng-hide="!loginStatus || loginStatus.status != 'connected'">
@@ -85,7 +86,7 @@
 
             <ul id="cart" class="dropdown-content collection" ng-controller="ShopCartController">
                 <li ng-repeat="f in basket" class="collection-item avatar">
-                    <img src="{{ f }}" class="circle mg-top">
+                    <!--<img src="{{ f }}" class="circle mg-top">-->
                     <span class="title black-text">{{ f.name }}</span>
                 </li>
             </ul>
@@ -105,8 +106,8 @@
     <div class="container" ng-view></div>
 
     <!--  Scripts-->
-    <script src="js/jquery-2.1.1.min.js"></script>
-    <script src="js/jssor.slider.mini.js"></script>
+    <script src="js/jquery-2.1.1.js"></script>
+    <script src="js/jquery.mobile.min.js"></script>
 
     <script src="js/angular/angular.min.js"></script>
     <script src="js/angular/angular-route.min.js"></script>

@@ -13,23 +13,24 @@
             <div class="col s12 m11">
                 <div class="card big z-depth-2">
                     <div class="card-image">
-                        <div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 100%; height: 100%; overflow: hidden; visibility: hidden;">
-                            <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 100%; height: 100%; overflow: hidden;">
-                                <div data-p="225.00" style="display: none;">
-                                    <img data-u="image" src="http://lorempixel.com/580/500/nature/2" />
-                                </div>
-                                <div data-p="225.00" style="display: none;">
-                                    <img data-u="image" src="http://lorempixel.com/580/500/nature/5" />
-                                </div>
-                            </div>
+                        <section class="cd-single-item">
+                            <div class="cd-slider-wrapper">
+                                <ul class="cd-slider">
+                                    <li class="selected"><img src="./images/sapatos1.jpg" alt="Product Image 1"></li>
+                                    <li><img src="./images/vestido1.jpg" alt="Product Image 2"></li>
+                                    <li><img src="./images/terno.png" alt="Product Image 3"></li>
+                                </ul> <!-- cd-slider -->
 
-                            <span class="card-title idx" style="" ng-bind-html="stars.stars_html(product)"></span>
+                                <ul class="cd-slider-navigation">
+                                    <li><a class="cd-prev inactive pointer">Next</a></li>
+                                    <li><a class="cd-next pointer">Prev</a></li>
+                                </ul> <!-- cd-slider-navigation -->
 
-                            <!-- Arrow Navigator -->
-                            <span data-u="arrowleft" class="jssora22l" style="top:0px;left:12px;width:40px;height:58px;" data-autocenter="2"></span>
-                            <span data-u="arrowright" class="jssora22r" style="top:0px;right:12px;width:40px;height:58px;" data-autocenter="2"></span>
-                        </div>
-                        <!--<img class="materialboxed" width="650" src="./images/vestido1.jpg"/>-->
+                                <span class="card-title idx" style="" ng-bind-html="stars.stars_html(product)"></span>
+
+                                <a class="cd-close pointer">Close</a>
+                            </div> <!-- cd-slider-wrapper -->
+                        </section> <!-- cd-single-item -->
                     </div>
                     <div class="card-content">
                         <p>{{ product.description }}</p>
@@ -53,48 +54,40 @@
                     <h5 class="grey-text darken-1">FRETE GRÁTIS</h5>
                 </div>
             </div>
+
+            <div class="col s12">
+                <br>
+                <a class="waves-effect waves-light btn" style="z-index: 1"><i class="material-icons left">shopping_cart</i>BUY</a>
+            </div>
         </div>
 
-        <a class="waves-effect waves-light btn"><i class="material-icons left">shopping_cart</i>BUY</a>
+        <div class="row"  style="margin-top: 50px">
+            <div class="col s12">
+                <h5>Informações Técnicas</h5>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12">
+                <table>
+                    <thead>
+                        <tr>
+                            <th data-field="id">Category</th>
+                            <th data-field="name">Gender</th>
+                            <th data-field="name">Size</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td><div class="chip">tem fé</div></td>
+                            <td>Masculino</td>
+                            <td>39-40</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </div>
-
-<script>
-    $('.slider').slider({full_width: true, indicators: true});
-</script>
-
-
-<script>
-    jQuery(document).ready(function ($) {
-
-
-        var jssor_1_options = {
-            $AutoPlay: true,
-            $SlideDuration: 800,
-            $SlideEasing: $Jease$.$OutQuint,
-            $ArrowNavigatorOptions: {
-                $Class: $JssorArrowNavigator$
-            }
-        };
-
-        var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
-
-        //responsive code begin
-        //you can remove responsive code if you don't want the slider scales while window resizing
-        function ScaleSlider() {
-            var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
-            if (refSize) {
-                refSize = Math.min(refSize, 1920);
-                jssor_1_slider.$ScaleWidth(refSize);
-            }
-            else {
-                window.setTimeout(ScaleSlider, 30);
-            }
-        }
-        ScaleSlider();
-        $(window).bind("load", ScaleSlider);
-        $(window).bind("resize", ScaleSlider);
-        $(window).bind("orientationchange", ScaleSlider);
-        //responsive code end
-    });
-</script>
+<script src="js/main.js"></script> <!-- Resource jQuery -->
