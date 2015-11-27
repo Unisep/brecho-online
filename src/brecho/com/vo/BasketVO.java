@@ -7,6 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -23,8 +26,9 @@ public class BasketVO {
 	@Column(name = "ship_date")
 	private Date ship_date;
 
-	@Column(name = "lessee_id")
-	private Integer lessee_id;
+	@OneToOne
+	@JoinColumn(name = "lessee_id")
+	private UserVO lessee;
 
 	public Integer getId() {
 		return id;
@@ -50,12 +54,12 @@ public class BasketVO {
 		this.ship_date = ship_date;
 	}
 
-	public Integer getLessee_id() {
-		return lessee_id;
+	public UserVO getLessee() {
+		return lessee;
 	}
 
-	public void setLessee_id(Integer lessee_id) {
-		this.lessee_id = lessee_id;
+	public void setLessee(UserVO lessee) {
+		this.lessee = lessee;
 	}
 
 }

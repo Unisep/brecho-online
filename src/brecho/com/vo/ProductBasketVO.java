@@ -1,17 +1,21 @@
 package brecho.com.vo;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "products_has_baskets")
 public class ProductBasketVO {
 
-	@Column(name = "products_id")
+	@OneToOne
+	@JoinColumn(name = "products_id")
 	public ProductVO product;
 
-	@Column(name = "baskets_id")
+	@ManyToOne
+	@JoinColumn(name = "baskets_id")
 	public BasketVO basket;
 
 	public ProductVO getProduct() {

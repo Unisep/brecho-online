@@ -10,7 +10,7 @@ shopApp.factory('ProductFactory', function($http) {
         if (this.busy) return;
         this.busy = true;
 
-        var url = "http://api.product.com/hot?after=" + this.after + "&jsonp=JSON_CALLBACK";
+        var url = "ws/listProducts";// + this.after + "&jsonp=JSON_CALLBACK";
         $http.jsonp(url).success(function(data) {
             var items = data.data.children;
             for (var i = 0; i < items.length; i++) {

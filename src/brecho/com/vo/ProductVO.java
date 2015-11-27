@@ -31,7 +31,7 @@ public class ProductVO {
 	@OneToOne
 	@JoinColumn(name = "owner_id")
 	public UserVO owner;
-	
+
 	public Integer getId() {
 		return id;
 	}
@@ -54,5 +54,21 @@ public class ProductVO {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public CategoryVO getCategory() {
+		return category;
+	}
+
+	public void setCategory(CategoryVO category) {
+		this.category = category;
+	}
+
+	public UserVO getOwner() {
+		return owner;
+	}
+
+	public void setOwner(UserVO user) {
+		this.owner = user;
 	}
 }
