@@ -71,5 +71,4 @@ public class ProductVO {
 	public void setOwner(UserVO user) {
 		this.owner = user;
 	}
-
 }

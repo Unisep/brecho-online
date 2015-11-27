@@ -14,7 +14,7 @@
 }
 
 .idx {
-    z-index: 9999;
+    z-index: 99;
 }
 
 .bg{
@@ -74,4 +74,10 @@ li > a:hover {
     .star-rating {
         font-size: 1.4em;
     }
+}
+
+.sub-title-item {
+    font-size: 12px !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
 }

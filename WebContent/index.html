@@ -8,9 +8,10 @@
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="shortcut icon" type="image/png" href="images/favicon.ico" />
-    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/slider.css" rel="stylesheet"/>
 </head>
 <body class="bg">
     <script>
@@ -47,7 +48,7 @@
                     <div class="row">
                         <div class="col s12">
                             <div class="col s6">
-                                <a id="shopping-cart" href="#!" class="valign brand-logo idx hide-on-small-only">
+                                <a id="shopping-cart" href="#/cart" class="valign brand-logo idx hide-on-small-only cart-dropdown" data-activates='cart'>
                                     <i class="fa fa-shopping-cart" style="color: #EBEBEB; padding-left: 42px"></i>
                                 </a>
                             </div>
@@ -69,17 +70,28 @@
                 </form>
             </div>
 
-            <!-- Dropdown Structure -->
+            <!-- Dropdown Structures -->
             <ul id="user" class="dropdown-content collection" ng-controller="LoginController">
                 <li ng-hide="loginStatus.status == 'connected'">
                     <a ng-click="login()" href> Entrar com o Facebook</a>
                 </li>
                 <li class="collection-item avatar" ng-hide="loginStatus.status != 'connected'">
-                    <img src="{{ user.picture.data.url }}" id="img-user-profile" alt="" class="circle mg-top">
-                    <span class="title  black-text">{{ user.name }}</span>
+                    <img ng-src="{{ user.picture.data.url }}" id="img-user-profile" alt="" class="circle mg-top">
+                    <span class="title black-text">{{ user.name }}</span>
                 </li>
                 <li class="collection-item" ng-hide="!loginStatus || loginStatus.status != 'connected'">
                     <a href ng-click="logout()">Logout</a>
+                </li>
+            </ul>
+
+            <ul id="cart" class="dropdown-content collection" ng-controller="ShopCartController">
+                <li ng-click="$location.path('/cart');" ng-repeat="product in basket.items" class="collection-item avatar">
+                    <img ng-src="{{ product.images[0] }}" class="circle mg-top">
+                    <span class="title black-text truncate">{{ product.name }}</span>
+                    <span class="sub-title-item grey-text truncate">{{ product.price | currency : "R$ " }} - Tam: <b>{{ product.size }}</b></span>
+                </li>
+                <li>
+                    <span>Total: <span class="black-text">{{ basket.items.sum("price") | currency : "R$ " }}</span></span>
                 </li>
             </ul>
 
@@ -90,14 +102,27 @@
             <ul class="side-nav" id="mobile-demo">
                 <li><a href="#/">Home</a></li>
                 <li><a href="#/">Perfil</a></li>
+                <li><a href="#/cart">Carrinho</a></li>
             </ul>
         </div>
     </nav>
 
-    <div class="container" ng-view></div>
+    <div class="container" ng-view style="min-height: 590px;"></div>
+
+    <footer class="grey  page-footer">
+        <div class="footer-copyright">
+            <div class="container">
+                © 2015 Equipe Rocket - UNISEP - S.I.
+                <a class="grey-text text-lighten-4 right" href="github.com/unisep/brecho-online">Source</a>
+                <a class="grey-text text-lighten-4 right" style="margin-right: 10px;" href="github.com/brunoocasali">Contact</a>
+            </div>
+        </div>
+    </footer>
 
     <!--  Scripts-->
-    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/jquery/jquery-2.1.1.js"></script>
+    <script src="js/jquery/jquery.mobile.min.js"></script>
+
     <script src="js/angular/angular.min.js"></script>
     <script src="js/angular/angular-route.min.js"></script>
     <script src="js/angular/angular-sanitize.min.js"></script>
@@ -105,13 +130,17 @@
     <script src="js/angular/ng-infinite-scroll.min.js"></script>
     <script src="js/module.js"></script>
 
-    <script src="js/angular/product_factory.js"></script>
-    <script src="js/angular/truncate_filter.js"></script>
+    <script src="js/modules/product_factory.js"></script>
+    <script src="js/modules/cart_factory.js"></script>
+    <script src="js/modules/star_factory.js"></script>
+    <script src="js/modules/truncate_filter.js"></script>
 
-    <script src="js/materialize.js"></script>
+    <script src="js/components/materialize.min.js"></script>
 
-    <script src="js/init.js"></script>
-    <script src="js/controller_list.js"></script>
-    <script src="js/login_controller.js"></script>
+    <script src="js/components/init.js"></script>
+    <script src="js/modules/controller_list.js"></script>
+    <script src="js/modules/login_controller.js"></script>
+    <script src="js/modules/show_product_controller.js"></script>
+    <script src="js/modules/shop_cart_controller.js"></script>
 </body>
 </html>

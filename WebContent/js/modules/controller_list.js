@@ -1,31 +1,7 @@
-shopApp.controller("ControllerList", function($scope, $location, $sce, ProductFactory) {
+shopApp.controller("ControllerList", function($scope, $location, $sce, ProductFactory, StarFactory) {
     $scope.query = {};
     $scope.product = new ProductFactory();
     $scope.filters_list = angular.element(document.querySelector('.filters_list'));
-    
-    $scope.stars_html = function(item) {
-        var string = '';
-
-        if (item.rate_total > 0) {
-            full = '<i class="fa fa-star amber-text accent-4"></i>';
-            half = '<i class="fa fa-star-half-o amber-text accent-4"></i>'
-
-            for (i = item.rate_total; i > 0; i--) {
-                if (i > 0 && i < 1)
-                    string += half;
-                else if (i > 0)
-                    string += full;
-            }
-        }else{
-            star_o = '<i class="fa fa-star-o amber-text accent-4"></i>'
-
-            for (i = 0; i < 5; i++) {
-                string += star_o;
-            }
-        }
-
-        return $sce.trustAsHtml(string);
-    };
 
     $scope.items = [
         // isso virá via requisição no web service
@@ -211,6 +187,10 @@ shopApp.controller("ControllerList", function($scope, $location, $sce, ProductFa
 
         delete $scope.query[root.kind];
     };
+
+    $scope.getUserImage = function(){
+        return loginStatus.status == 'connected' ? user.picture.data.url : 'images/logo.png';
+    }
 });
 
 function removeFilter(kind_index, index) {

@@ -1,0 +1,63 @@
+<nav class="transparent z-depth-0">
+    <div class="nav-wrapper">
+        <div class="col s12">
+            <a href="#/" class="breadcrumb">Todos os Produtos</a>
+            <a href onclick="history.back()" class="breadcrumb">Visualização</a>
+            <a class="breadcrumb">Carrinho</a>
+        </div>
+    </div>
+</nav>
+
+<div class="">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Items:</th>
+                <th colspan="3"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in basket.items">
+                <td colspan="1" width="30%">
+                    <img ng-src="{{ item.images[0] }}" class="hide-on-small-only z-depth-2 rounded" height="290" alt="" style="border-radius: 4px;"/>
+                </td>
+                <td width="60%">
+                    <ul style="margin-left: 20px">
+                        <li><b>Nome: </b> {{ item.name }}</li>
+                        <li><b>Gênero: </b> {{ item.gender }}</li>
+                        <li><b>Avaliação: </b> {{ item.rate_total }} estrelas</li>
+                        <li><b>Tamanho: </b> {{ item.size }}</li>
+                        <li><b>Preço: </b> {{ item.price | currency: "R$ "}}</li>
+                        <li><b>Categoria: </b> <span class="chip">{{ item.category.name }}</span></li>
+                        <li style="margin-top: 20px; margin-bottom: 10px"></li>
+                        <li><b>Nome do Dono: </b> {{ item.owner.name }} </li>
+                        <li><b>Email do Dono: </b> {{ item.owner.email }} </li>
+                    </ul>
+                </td>
+                <td colspan="1">
+                    <button class="btn btn-large red" ng-click="removeItem();">REMOVER</button>
+                </td>
+            </tr>
+            <tr ng-show="!basket.items.length">
+                <td>
+                    <h5>Carrinho vazio!, :(</h5>
+                </td>
+            </tr>
+            <tr ng-show="basket.items.length">
+                <td>
+                    <h5>Total: </h5> <h4> {{ basket.items.sum("price") | currency : "R$ " }}</h4>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+    <a class="btn-floating btn-large green">
+        <i class="large material-icons">payment</i>
+    </a>
+    <ul>
+        <li><a class="btn-floating yellow darken-1" title="voltar!"><i class="material-icons">replay</i></a></li>
+        <li><a class="btn-floating blue" title="Informaões"><i class="material-icons">info</i></a></li>
+    </ul>
+</div>
